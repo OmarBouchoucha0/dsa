@@ -7,4 +7,5 @@ test {
     _ = @import("linkedList.zig");
     _ = @import("stack.zig");
     _ = @import("queue.zig");
+    _ = @import("dynamicArray.zig");
 }

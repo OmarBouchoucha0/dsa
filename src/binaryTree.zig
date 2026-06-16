@@ -43,6 +43,30 @@ const Node = struct {
             }
         }
     }
+
+    pub fn search(root: *?*Node, val: usize) bool {
+        var curr = root.*;
+        while (curr != null) {
+            if (curr.?.val == val) {
+                return true;
+            }
+            if (curr.?.val > val) {
+                curr = curr.?.right;
+            } else {
+                curr = curr.?.left;
+            }
+        }
+        return false;
+    }
+
+    pub fn print(root: *?*Node) void {
+        if (root.* == null) {
+            return;
+        }
+        std.debug.print("val : {}", .{root.*.?.val});
+        print(root.*.?.left);
+        print(root.*.?.right);
+    }
 };
 
 test "tree of 1" {
